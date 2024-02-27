@@ -1,0 +1,66 @@
+<p>postput works!</p>
+<div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  ">
+
+  <mat-form-field appearance="outline" color="accent" class="w-52 mt-4">
+    <mat-label>ID</mat-label>
+    <input matInput type="number" min="0" #id />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>Destination</mat-label>
+    <mat-select [(ngModel)]="destination">
+      <!-- @for (destination of destinations; track destination) {
+      <mat-option [value]="destination.value">{{
+        destination.name
+      }}</mat-option>
+      } -->
+      <mat-option *ngFor="let destination of destinations" [value]="destination.value">
+        {{ destination.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>Country</mat-label>
+    <input matInput [(ngModel)]="country" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>CoverImage</mat-label>
+    <input matInput [(ngModel)]="cover" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>Detail</mat-label>
+    <input matInput [(ngModel)]="detail" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" min="0" [(ngModel)]="price" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-52">
+    <mat-label>Duration</mat-label>
+    <input matInput type="number" min="0" [(ngModel)]="duration" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="mt-4 w-52" (click)="addNew()">
+    Add
+  </button>
+
+  <button mat-raised-button color="accent" class="mt-4 w-52" (click)="update(+id.value)">
+    Update
+  </button>
+
+</div>
